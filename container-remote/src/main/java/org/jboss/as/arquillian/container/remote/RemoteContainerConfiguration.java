@@ -22,10 +22,26 @@ import org.jboss.as.arquillian.container.CommonContainerConfiguration;
  * JBossAsManagedConfiguration
  *
  * @author <a href="mailto:aslak@redhat.com">Aslak Knutsen</a>
+ * @author Alexander Köck
  * @version $Revision: $
  */
 public class RemoteContainerConfiguration extends CommonContainerConfiguration {
 
+    private long timeout;
+    
+    public RemoteContainerConfiguration () {
+        super();
+        timeout = 60_000L;
+    }
+    
+    public long getTimeout() {
+        return timeout;
+    }
+    
+    public void setTimeout(long timeout) {
+        this.timeout = timeout;
+    }
+    
     @Override
     public void validate() throws ConfigurationException {
         super.validate();
